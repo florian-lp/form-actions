@@ -1,0 +1,49 @@
+{
+	"name": "form-actions",
+	"version": "1.0.0-beta.0",
+	"type": "module",
+	"description": "Type-safe form submissions using React server actions.",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/types/index.d.ts",
+	"exports": {
+		".": "./dist/index.js"
+	},
+	"author": "InfinityFX <contact@infinity-fx.com> (https://infinityfx.dev)",
+	"license": "GPL-3.0",
+	"funding": "https://ko-fi.com/infinityfx",
+	"keywords": [
+		"react",
+		"actions",
+		"form",
+		"state"
+	],
+	"scripts": {
+		"build": "rollup -c --environment NODE_ENV:production",
+		"watch": "rollup -c -w"
+	},
+	"peerDependencies": {
+		"react": ">=19.0.0",
+		"react-dom": ">=19.0.0"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^25.0.7",
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@rollup/plugin-terser": "^0.4.4",
+		"@rollup/plugin-typescript": "^11.1.6",
+		"rollup-plugin-preserve-directives": "^0.4.0",
+		"@types/react": "npm:types-react@beta",
+		"@types/react-dom": "npm:types-react-dom@beta",
+		"react": "^19.0.0-beta-94eed63c49-20240425",
+		"react-dom": "^19.0.0-beta-94eed63c49-20240425",
+		"rollup": "^4.17.1",
+		"rollup-plugin-delete": "^2.0.0",
+		"tslib": "^2.6.2",
+		"typescript": "^5.4.5"
+	},
+	"overrides": {
+		"@types/react": "npm:types-react@beta",
+		"@types/react-dom": "npm:types-react-dom@beta"
+	},
+	"sideEffects": false
+}
