@@ -15,8 +15,17 @@ type ActionResult<T> = {
 } | {};
 
 export default function useFormAction<T extends ActionArguments, R extends ActionResult<T>>({ initial, action, then }: {
+    /**
+     * An object representing the initial values for the form.
+     */
     initial: T;
+    /**
+     * A server action `function` annotated with a `'use server'` directive.
+     */
     action: (args: T) => Promise<R>;
+    /**
+     * Gets called after the `action()` completes and gets passed it's awaited return value.
+     */
     then?: (data: R) => Promise<void> | void;
 }) {
     const internal = useRef(initial);
@@ -63,9 +72,31 @@ export default function useFormAction<T extends ActionArguments, R extends Actio
     }
 
     return {
+        /**
+         * The action to be passed to a `<form />` element's `action` attribute.
+         * 
+         * `<form action={formAction} />`
+         */
         formAction,
+        /**
+         * Whether the form is currently being submitted or not.
+         * 
+         * Can be used to disable the form whilst it's being submitted.
+         */
         pending,
+        /**
+         * Bind an input to the form by passing the `value`, `checked` and `onChange` props to it.
+         * 
+         * Accepts an optional argument which can be used to map a custom components `onChange` argument to a value accepted by the form.
+         * 
+         * When not provided, it defaults to using `event.target.value` or `event.target.checked`.
+         * 
+         * `<input {...bind('myField')} />`
+         */
         bind,
+        /**
+         * Resets the form to the values defined in the `initial` argument.
+         */
         reset: setValues.bind(initial)
     };
 }

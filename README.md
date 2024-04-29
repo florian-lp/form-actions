@@ -13,6 +13,7 @@ Type-safe form submissions using React server actions.
 ```tsx
 'use client';
 
+import { useFormAction } from 'form-actions';
 import { myAction } from './actions';
 
 export default function myForm() {
