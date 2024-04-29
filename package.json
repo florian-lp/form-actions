@@ -1,6 +1,6 @@
 {
 	"name": "form-actions",
-	"version": "1.0.0-beta.2",
+	"version": "1.0.0-beta.3",
 	"type": "module",
 	"description": "Type-safe form submissions using React server actions.",
 	"main": "dist/index.js",
@@ -19,11 +19,16 @@
 		"react",
 		"actions",
 		"form",
-		"state"
+		"state",
+		"type-safe",
+		"server actions"
 	],
 	"scripts": {
 		"build": "rollup -c --environment NODE_ENV:production",
 		"watch": "rollup -c -w"
+	},
+	"dependencies": {
+		"tslib": "^2.6.2"
 	},
 	"peerDependencies": {
 		"react": ">=19.0.0",

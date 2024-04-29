@@ -8,7 +8,7 @@
 
 Type-safe form submissions using React server actions.
 
-# Usage
+## Usage
 
 ```tsx
 'use client';
@@ -48,6 +48,46 @@ export async function myAction({ email, password }: {
 }) {
     const user = getUserFromEmail(email);
     
+    if (!user) return {
+        errors: {
+            email: 'Email is incorrect'
+        }
+    };
+
+    if (!compare(password, user.hash)) return {
+        errors: {
+            password: 'Password is incorrect'
+        }
+    };
+
+    return { user };
+}
+```
+
+## With server-side validation
+
+```ts
+'use server';
+
+import { z } from 'zod';
+
+const schema = z.object({
+    email: z.string(),
+    password: z.string()
+});
+
+export async function myAction(data: { email: string; password: string; }) {
+    const { error } = schema.safeParse(data);
+    
+    if (error) return {
+        errors: {
+            email: true,
+            password: true
+        }
+    };
+
+    const user = getUserFromEmail(email);
+
     if (!user) return {
         errors: {
             email: 'Email is incorrect'
