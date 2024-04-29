@@ -1,5 +1,3 @@
-'use client';
-
 import { useRef, useState, useTransition } from 'react';
 
 type ActionValue = string | number | boolean | Date | null;
@@ -13,7 +11,7 @@ type ActionErrors<T> = {
 };
 
 type ActionResult<T> = {
-    errors: ActionErrors<T>
+    errors: ActionErrors<T>;
 } | {};
 
 export default function useFormAction<T extends ActionArguments, R extends ActionResult<T>>({ initial, action, then }: {
@@ -30,7 +28,7 @@ export default function useFormAction<T extends ActionArguments, R extends Actio
         // @ts-expect-error
         start(async () => {
             const result = await action(internal.current);
-            
+
             setErrors('errors' in result ? result.errors : {});
             then?.(result);
         });
@@ -52,9 +50,9 @@ export default function useFormAction<T extends ActionArguments, R extends Actio
                 if (onChange !== undefined) {
                     updated = onChange(arg);
                 } else
-                if (arg && typeof arg === 'object' && 'target' in arg && arg.target instanceof Element) {
-                    updated = isBool ? (arg.target as any).checked : (arg.target as any).value;
-                }
+                    if (arg && typeof arg === 'object' && 'target' in arg && arg.target instanceof Element) {
+                        updated = isBool ? (arg.target as any).checked : (arg.target as any).value;
+                    }
 
                 setValues({ [key]: updated } as any);
             },
@@ -67,6 +65,7 @@ export default function useFormAction<T extends ActionArguments, R extends Actio
     return {
         formAction,
         pending,
-        bind
+        bind,
+        reset: setValues.bind(initial)
     };
 }

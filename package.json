@@ -1,6 +1,6 @@
 {
 	"name": "form-actions",
-	"version": "1.0.0-beta.0",
+	"version": "1.0.0-beta.1",
 	"type": "module",
 	"description": "Type-safe form submissions using React server actions.",
 	"main": "dist/index.js",
@@ -9,8 +9,11 @@
 	"exports": {
 		".": "./dist/index.js"
 	},
+	"repository": "florian-lp/form-actions",
 	"author": "InfinityFX <contact@infinity-fx.com> (https://infinityfx.dev)",
 	"license": "GPL-3.0",
+	"bugs": "https://github.com/florian-lp/form-actions/issues",
+	"homepage": "https://github.com/florian-lp/form-actions#readme",
 	"funding": "https://ko-fi.com/infinityfx",
 	"keywords": [
 		"react",
@@ -31,7 +34,6 @@
 		"@rollup/plugin-node-resolve": "^15.2.3",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@rollup/plugin-typescript": "^11.1.6",
-		"rollup-plugin-preserve-directives": "^0.4.0",
 		"@types/react": "npm:types-react@beta",
 		"@types/react-dom": "npm:types-react-dom@beta",
 		"react": "^19.0.0-beta-94eed63c49-20240425",
