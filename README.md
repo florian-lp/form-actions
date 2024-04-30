@@ -11,9 +11,10 @@ Type-safe form submissions using React server actions.
 ## Usage
 
 ```tsx
+// my-form.tsx
 'use client';
 
-import { useFormAction } from 'form-actions';
+import { useFormAction } from 'form-actions/hooks';
 import { myAction } from './actions';
 
 export default function myForm() {
@@ -40,6 +41,7 @@ export default function myForm() {
 ```
 
 ```ts
+// actions.ts
 'use server';
 
 export async function myAction({ email, password }: {
@@ -67,6 +69,7 @@ export async function myAction({ email, password }: {
 ## With server-side validation
 
 ```ts
+// actions.ts
 'use server';
 
 import { z } from 'zod';
@@ -102,4 +105,18 @@ export async function myAction(data: { email: string; password: string; }) {
 
     return { user };
 }
+```
+
+## Create a public REST endpoint
+
+Using `createEndpointFromAction` you are able to create a wrapper around an action that takes in a `Request` object and returns a `Response` object with a `JSON` payload containing the return data from the action.
+
+This could, for example, be used with Next.js' route handler files to create a publicly accessible endpoint.
+```ts
+// route.ts
+
+import { createEndpointFromAction } from 'form-actions';
+import { myAction } from './actions';
+
+export const POST = createEndpointFromAction(myAction);
 ```

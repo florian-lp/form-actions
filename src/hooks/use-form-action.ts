@@ -1,26 +1,13 @@
 import { useRef, useState, useTransition } from 'react';
+import { ActionErrors, ActionResult, SerializableArguments } from '../core/shared';
 
-type ActionValue = string | number | boolean | Date | null;
-
-type ActionArguments = {
-    [key: string]: ActionValue | ActionValue[];
-};
-
-type ActionErrors<T> = {
-    [key in keyof T]?: string | boolean;
-};
-
-type ActionResult<T> = {
-    errors: ActionErrors<T>;
-} | {};
-
-export default function useFormAction<T extends ActionArguments, R extends ActionResult<T>>({ initial, action, then }: {
+export default function useFormAction<T extends SerializableArguments, R extends ActionResult<T>>({ initial, action, then }: {
     /**
      * An object representing the initial values for the form.
      */
     initial: T;
     /**
-     * A server action `function` annotated with a `'use server'` directive.
+     * A server action `function` annotated with a [`'use server'`](https://react.dev/reference/rsc/use-server) directive.
      */
     action: (args: T) => Promise<R>;
     /**

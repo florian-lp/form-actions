@@ -1,13 +1,21 @@
 {
 	"name": "form-actions",
-	"version": "1.0.0-beta.4",
+	"version": "1.0.0-beta.5",
 	"type": "module",
 	"description": "Type-safe form submissions using React server actions.",
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"types": "dist/types/index.d.ts",
 	"exports": {
-		".": "./dist/index.js"
+		".": "./dist/index.js",
+		"./hooks": "./dist/hooks.js"
+	},
+	"typesVersions": {
+		"*": {
+			"hooks": [
+				"./dist/types/hooks.d.ts"
+			]
+		}
 	},
 	"repository": "florian-lp/form-actions",
 	"author": "InfinityFX <contact@infinity-fx.com> (https://infinityfx.dev)",

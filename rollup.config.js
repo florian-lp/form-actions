@@ -7,7 +7,7 @@ import typescript from '@rollup/plugin-typescript';
 const production = process.env.NODE_ENV === 'production';
 
 export default {
-    input: ['src/index.ts'],
+    input: ['src/index.ts', 'src/hooks.ts'],
     external: ['react', 'react-dom', 'react/jsx-runtime', 'tslib'],
     output: {
         dir: 'dist',
