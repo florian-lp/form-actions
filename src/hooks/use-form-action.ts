@@ -71,6 +71,11 @@ export default function useFormAction<T extends ActionArguments, R extends Actio
         };
     }
 
+    function reset() {
+        setValues(initial);
+        setErrors({});
+    }
+
     return {
         /**
          * The action to be passed to a `<form />` element's `action` attribute.
@@ -95,8 +100,8 @@ export default function useFormAction<T extends ActionArguments, R extends Actio
          */
         bind,
         /**
-         * Resets the form to the values defined in the `initial` argument.
+         * Resets the form to the values defined in the `initial` argument and clears all errors.
          */
-        reset: setValues.bind(initial)
+        reset
     };
 }
