@@ -1,6 +1,6 @@
 {
 	"name": "form-actions",
-	"version": "1.0.0-beta.5",
+	"version": "1.0.0-beta.6",
 	"type": "module",
 	"description": "Type-safe form submissions using React server actions.",
 	"main": "dist/index.js",
@@ -47,18 +47,14 @@
 		"@rollup/plugin-node-resolve": "^15.2.3",
 		"@rollup/plugin-terser": "^0.4.4",
 		"@rollup/plugin-typescript": "^11.1.6",
-		"@types/react": "npm:types-react@beta",
-		"@types/react-dom": "npm:types-react-dom@beta",
-		"react": "^19.0.0-beta-94eed63c49-20240425",
-		"react-dom": "^19.0.0-beta-94eed63c49-20240425",
+		"@types/react": "npm:types-react@^19.0.0-rc.0",
+		"@types/react-dom": "npm:types-react-dom@^19.0.0-rc.0",
+		"react": "^19.0.0-rc-6f23540c7d-20240528",
+		"react-dom": "^19.0.0-rc-6f23540c7d-20240528",
 		"rollup": "^4.17.1",
 		"rollup-plugin-delete": "^2.0.0",
 		"tslib": "^2.6.2",
 		"typescript": "^5.4.5"
-	},
-	"overrides": {
-		"@types/react": "npm:types-react@beta",
-		"@types/react-dom": "npm:types-react-dom@beta"
 	},
 	"sideEffects": false
 }

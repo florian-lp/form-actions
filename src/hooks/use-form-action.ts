@@ -21,7 +21,6 @@ export default function useFormAction<T extends SerializableArguments, R extends
     const [pending, start] = useTransition();
 
     async function formAction() {
-        // @ts-expect-error
         start(async () => {
             const result = await action(internal.current);
 
